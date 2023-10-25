@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "origin.protobuf";
+
+service PetOwnerService{
+  rpc CreatePetOwner(RegisterPetOwner) returns (PetOwner);
+  rpc LoginPetOwner(LoginUser) returns (PetOwner);
+  rpc FindPetOwner(SearchField) returns (PetOwner);  // return with password, so be careful
+  rpc UpdatePetOwnerInformation(PetOwnerInfo) returns (Void); // not sure about void
+}
+
+service AnnouncementService{
+  rpc CreateAnnouncement(Announcement) returns (Announcement); // maybe createAnnouncement message would be better
+  rpc FindAnnouncements(SearchField) returns (Announcements);
+  rpc UpdateAnnouncement(Announcement) returns (Void);  // not sure about void
+  rpc DeleteAnnouncement(Announcement) returns (Void);  // not sure about void
+}
+
+message PetOwner{
+  string username = 1;
+  string password = 2;
+  string f_name = 3;
+  string l_name = 4;
+  int32 age = 5;
+  string phone = 6;
+  string email = 7;
+}
+
+message RegisterPetOwner{
+  string username = 1;
+  string password = 2;
+  string f_name = 3;
+  string l_name = 4;
+}
+
+message LoginUser{
+  string username = 1;
+  string password = 2;
+}
+
+message PetOwnerInfo{
+  string username = 1;
+  string f_name = 2;
+  string l_name = 3;
+  string phone = 4;
+  string email = 5;
+}
+
+message Announcement{
+  string petOwnerUsername = 1;
+  string description = 2;
+  TimeInterval timeInterval = 3;
+  Pet pet = 4;
+  Address address = 5;
+  google.protobuf.Timestamp dateOfCreation = 6;
+}
+
+message Announcements{
+  repeated Announcement announcements = 1;
+}
+
+message Pet{
+  string petName = 1;
+  string petType = 2;  // dog, cat ....
+  string Race = 3;
+  int32 weight = 4;
+  bool isVaccinated = 5;
+  bool needWalks = 6;
+  string dietDescription =7;
+}
+
+message TimeInterval{
+   google.protobuf.Timestamp startDate = 1;
+   google.protobuf.Timestamp finishDate = 2;
+}
+
+message Address{
+  string country = 1;
+  string city = 2;
+  string zip = 3;
+  string street = 4;
+}
+
+message SearchField{
+  string search = 1;
+}
+
+message Void{}
+

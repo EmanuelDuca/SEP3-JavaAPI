@@ -1,13 +1,13 @@
-package com.example.sep3javaserverspring;
+package origin.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Sep3JavaServerSpringApplication {
+public class DataAccessApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(Sep3JavaServerSpringApplication.class, args);
+        SpringApplication.run(DataAccessApp.class, args);
     }
 
 }
