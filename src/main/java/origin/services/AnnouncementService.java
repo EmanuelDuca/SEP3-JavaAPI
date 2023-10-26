@@ -1,4 +1,7 @@
 package origin.services;
 
-public class AnnouncementService {
+import origin.protobufClasses.AnnouncementServiceGrpc;
+
+public class AnnouncementService extends AnnouncementServiceGrpc.AnnouncementServiceImplBase {
+
 }

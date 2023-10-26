@@ -55,7 +55,7 @@ message Announcement{
   TimeInterval timeInterval = 3;
   Pet pet = 4;
   Address address = 5;
-  google.protobuf.Timestamp dateOfCreation = 6;
+  string dateOfCreation = 6;
 }
 
 message Announcements{
@@ -73,8 +73,8 @@ message Pet{
 }
 
 message TimeInterval{
-   google.protobuf.Timestamp startDate = 1;
-   google.protobuf.Timestamp finishDate = 2;
+   string startDate = 1;
+   string finishDate = 2;
 }
 
 message Address{
