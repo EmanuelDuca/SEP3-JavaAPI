@@ -1,19 +1,19 @@
 package origin.DAOInterfaces;
 
-import origin.shared.Announcement;
+import origin.shared.AnnouncementEntity;
 
 import java.util.Collection;
 
 public interface AnnouncementDAOInterface {
-    Announcement createAnnouncement(Announcement announcement);
+    AnnouncementEntity createAnnouncement(AnnouncementEntity announcementEntity);
 
-    void updateAnnouncement(Announcement announcement);
+    void updateAnnouncement(AnnouncementEntity announcementEntity);
 
-    Announcement getAnnouncement(String petOwnerUsername, String dateOfCreation);
+    AnnouncementEntity getAnnouncement(String petOwnerUsername, String dateOfCreation);
 
-    Collection<Announcement> getAllAnnouncements();
+    Collection<AnnouncementEntity> getAllAnnouncements();
 
-    Collection<Announcement> getAnnouncements(String searchField);
+    Collection<AnnouncementEntity> getAnnouncements(String searchField);
 
-    void deleteAnnouncement(Announcement announcement);
+    void deleteAnnouncement(AnnouncementEntity announcementEntity);
 }

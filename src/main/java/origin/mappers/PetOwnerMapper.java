@@ -1,9 +1,10 @@
 package origin.mappers;
 
 import origin.protobufClasses.PetOwner;
+import origin.shared.PetOwnerEntity;
 
-public class UserMapper {
-    public static PetOwner mapProto(origin.shared.PetOwner user)
+public class PetOwnerMapper {
+    public static PetOwner mapProto(PetOwnerEntity user)
     {
         return PetOwner.newBuilder()
                 .setUsername(user.getUsername())
@@ -16,9 +17,9 @@ public class UserMapper {
                 .build();
     }
 
-    public static origin.shared.PetOwner mapToShared(PetOwner user)
+    public static PetOwnerEntity mapToShared(PetOwner user)
     {
-        return new origin.shared.PetOwner(
+        return new PetOwnerEntity(
                 user.getUsername(),
                 user.getPassword(),
                 user.getFName(),

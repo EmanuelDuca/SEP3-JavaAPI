@@ -1,20 +1,20 @@
 package origin.DAOInterfaces;
 
 
-import origin.shared.PetOwner;
+import origin.shared.PetOwnerEntity;
 
 import java.util.Collection;
 
 public interface PetOwnerDAOInterface {
-    PetOwner registerUser(PetOwner petOwner);
+    PetOwnerEntity registerUser(PetOwnerEntity petOwnerEntity);
 
-    PetOwner loginPetOwner(PetOwner petOwner);
+    PetOwnerEntity loginPetOwner(PetOwnerEntity petOwnerEntity);
 
-    PetOwner findPetOwner(String username);
+    PetOwnerEntity findPetOwner(String username);
 
-    void updatePetOwnerInformation(PetOwner petOwner);
+    void updatePetOwnerInformation(PetOwnerEntity petOwnerEntity);
 
-    Collection<PetOwner> getAllPetOwners();
+    Collection<PetOwnerEntity> getAllPetOwners();
 
-    Collection<PetOwner> getPetOwners(String searchField);
+    Collection<PetOwnerEntity> getPetOwners(String searchField);
 }

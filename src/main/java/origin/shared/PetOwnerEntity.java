@@ -2,7 +2,7 @@ package origin.shared;
 
 import java.io.Serializable;
 
-public class PetOwner implements Serializable {
+public class PetOwnerEntity implements Serializable {
     private String username;
     private String password;
     private String f_name;
@@ -11,14 +11,12 @@ public class PetOwner implements Serializable {
     private String phone;
     private String email;
 
-    public PetOwner(String username, String password, String f_name, String l_name) {
+    public PetOwnerEntity(String username, String password) {
         this.username = username;
         this.password = password;
-        this.f_name = f_name;
-        this.l_name = l_name;
     }
 
-    public PetOwner(String username, String password, String f_name, String l_name, int age, String phone, String email) {
+    public PetOwnerEntity(String username, String password, String f_name, String l_name, int age, String phone, String email) {
         this.username = username;
         this.password = password;
         this.f_name = f_name;
@@ -26,6 +24,16 @@ public class PetOwner implements Serializable {
         this.age = age;
         this.phone = phone;
         this.email = email;
+    }
+
+    public PetOwnerEntity(String username, String password, String f_name, String l_name) {
+        this.username = username;
+        this.password = password;
+        this.f_name = f_name;
+        this.l_name = l_name;
+    }
+
+    public PetOwnerEntity() {
     }
 
 
@@ -79,5 +87,9 @@ public class PetOwner implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

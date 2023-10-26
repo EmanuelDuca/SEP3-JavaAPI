@@ -1,15 +1,15 @@
 package origin.shared;
 
-public class Address {
+public class AddressEntity {
     private String country;
     private String city;
     private String zip;
     private String street;
 
-    public Address() {
+    public AddressEntity() {
     }
 
-    public Address(String country, String city, String zip, String street) {
+    public AddressEntity(String country, String city, String zip, String street) {
         this.country = country;
         this.city = city;
         this.zip = zip;

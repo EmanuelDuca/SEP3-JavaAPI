@@ -1,24 +1,25 @@
 package origin.mappers;
 
 import origin.protobufClasses.Pet;
+import origin.shared.PetEntity;
 
 public class PetMapper {
-    public static Pet mapToProto(origin.shared.Pet pet)
+    public static Pet mapToProto(PetEntity petEntity)
     {
         return Pet.newBuilder()
-                .setPetName(pet.getPetName())
-                .setPetType(pet.getPetType())
-                .setRace(pet.getRace())
-                .setWeight(pet.getWeight())
-                .setIsVaccinated(pet.isVaccinated())
-                .setNeedWalks(pet.isNeedWalks())
-                .setDietDescription(pet.getDietDescription())
+                .setPetName(petEntity.getPetName())
+                .setPetType(petEntity.getPetType())
+                .setRace(petEntity.getRace())
+                .setWeight(petEntity.getWeight())
+                .setIsVaccinated(petEntity.isVaccinated())
+                .setNeedWalks(petEntity.isNeedWalks())
+                .setDietDescription(petEntity.getDietDescription())
                 .build();
     }
 
-    public static origin.shared.Pet mapToShared(Pet pet)
+    public static PetEntity mapToShared(Pet pet)
     {
-        return new origin.shared.Pet(
+        return new PetEntity(
                 pet.getPetName(),
                 pet.getPetType(),
                 pet.getRace(),

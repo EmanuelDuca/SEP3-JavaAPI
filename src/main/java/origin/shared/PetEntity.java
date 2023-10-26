@@ -1,6 +1,6 @@
 package origin.shared;
 
-public class Pet {
+public class PetEntity {
     private String petName;
     private String petType;
     private String Race;
@@ -9,7 +9,7 @@ public class Pet {
     private boolean needWalks = true;
     private String dietDescription ="";
 
-    public Pet(String petName, String petType, String race, int weight, boolean isVaccinated, boolean needWalks, String dietDescription) {
+    public PetEntity(String petName, String petType, String race, int weight, boolean isVaccinated, boolean needWalks, String dietDescription) {
         this.petName = petName;
         this.petType = petType;
         Race = race;
@@ -19,10 +19,10 @@ public class Pet {
         this.dietDescription = dietDescription;
     }
 
-    public Pet() {
+    public PetEntity() {
     }
 
-    public Pet(String petName, String petType) {
+    public PetEntity(String petName, String petType) {
         this.petName = petName;
         this.petType = petType;
     }

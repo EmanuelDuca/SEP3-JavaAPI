@@ -1,21 +1,22 @@
 package origin.mappers;
 
 import origin.protobufClasses.Address;
+import origin.shared.AddressEntity;
 
 public class AddressMapper {
-    public static Address mapToProto(origin.shared.Address address)
+    public static Address mapToProto(AddressEntity addressEntity)
     {
         return Address.newBuilder()
-                .setCountry(address.getCountry())
-                .setCity(address.getCity())
-                .setZip(address.getZip())
-                .setStreet(address.getStreet())
+                .setCountry(addressEntity.getCountry())
+                .setCity(addressEntity.getCity())
+                .setZip(addressEntity.getZip())
+                .setStreet(addressEntity.getStreet())
                 .build();
     }
 
-    public static origin.shared.Address mapToShared(Address address)
+    public static AddressEntity mapToShared(Address address)
     {
-        return new origin.shared.Address(
+        return new AddressEntity(
                 address.getCountry(),
                 address.getCity(),
                 address.getZip(),

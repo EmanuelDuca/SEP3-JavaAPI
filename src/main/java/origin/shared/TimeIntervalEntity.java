@@ -1,10 +1,10 @@
 package origin.shared;
 
-public class TimeInterval {
+public class TimeIntervalEntity {
     private final String startDate;
     private final String endDate;
 
-    public TimeInterval(String startDate, String endDate) {
+    public TimeIntervalEntity(String startDate, String endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
     }

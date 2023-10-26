@@ -2,19 +2,20 @@ package origin.mappers;
 
 
 import origin.protobufClasses.TimeInterval;
+import origin.shared.TimeIntervalEntity;
 
 public class DateIntervalMapper {
-    public static TimeInterval mapToProto(origin.shared.TimeInterval timeInterval)
+    public static TimeInterval mapToProto(TimeIntervalEntity timeIntervalEntity)
     {
         return TimeInterval.newBuilder()
-                .setStartDate(timeInterval.getStartDate())
-                .setFinishDate(timeInterval.getEndDate())
+                .setStartDate(timeIntervalEntity.getStartDate())
+                .setFinishDate(timeIntervalEntity.getEndDate())
                 .build();
     }
 
-    public static origin.shared.TimeInterval mapToShared(TimeInterval timeInterval)
+    public static TimeIntervalEntity mapToShared(TimeInterval timeInterval)
     {
-        return new origin.shared.TimeInterval(
+        return new TimeIntervalEntity(
                 timeInterval.getStartDate(),
                 timeInterval.getFinishDate()
 
