@@ -42,6 +42,7 @@ public class PetOwnerService extends PetOwnerServiceGrpc.PetOwnerServiceImplBase
         responseObserver.onNext(PetOwnerMapper.mapProto(registerPetOwner));
         responseObserver.onCompleted();
 
+        System.out.println("Create new User ---");
     }
 
     @Override
