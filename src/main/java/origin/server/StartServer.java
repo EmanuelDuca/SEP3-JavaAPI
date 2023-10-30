@@ -13,9 +13,8 @@ public class StartServer {
                 .addService(new AnnouncementService())
                 .addService(new PetOwnerService())
                 .build();
-        System.out.println("Server is running");
-
         server.start();
+        System.out.println("Server is running on port:" + server.getPort());
         server.awaitTermination();
     }
 

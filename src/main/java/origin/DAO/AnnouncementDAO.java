@@ -10,8 +10,9 @@ public class AnnouncementDAO implements AnnouncementDAOInterface {
     }
 
     @Override
-    public AnnouncementEntity createAnnouncement(AnnouncementEntity announcementEntity) {
-        return null;
+    public AnnouncementEntity createAnnouncement(AnnouncementEntity announcementEntity)
+    {
+        return announcementEntity;
     }
 
     @Override

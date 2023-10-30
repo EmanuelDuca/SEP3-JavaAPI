@@ -10,8 +10,9 @@ public class PetOwnerDAO implements PetOwnerDAOInterface {
     }
 
     @Override
-    public PetOwnerEntity registerUser(PetOwnerEntity petOwnerEntity) {
-        return null;
+    public PetOwnerEntity registerUser(PetOwnerEntity petOwnerEntity)
+    {
+        return petOwnerEntity;
     }
 
     @Override
