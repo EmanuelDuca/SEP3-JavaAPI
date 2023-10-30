@@ -15,8 +15,9 @@ public  final class Announcement extends
     super(builder);
   }
   private Announcement() {
-    petOwnerUsername_ = "";
+    petOwnerEmail_ = "";
     description_ = "";
+    postalCode_ = "";
     dateOfCreation_ = "";
   }
 
@@ -48,7 +49,7 @@ public  final class Announcement extends
           case 10: {
             String s = input.readStringRequireUtf8();
 
-            petOwnerUsername_ = s;
+            petOwnerEmail_ = s;
             break;
           }
           case 18: {
@@ -84,16 +85,9 @@ public  final class Announcement extends
             break;
           }
           case 42: {
-            Address.Builder subBuilder = null;
-            if (address_ != null) {
-              subBuilder = address_.toBuilder();
-            }
-            address_ = input.readMessage(Address.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(address_);
-              address_ = subBuilder.buildPartial();
-            }
+            String s = input.readStringRequireUtf8();
 
+            postalCode_ = s;
             break;
           }
           case 50: {
@@ -125,34 +119,34 @@ public  final class Announcement extends
             Announcement.class, Announcement.Builder.class);
   }
 
-  public static final int PETOWNERUSERNAME_FIELD_NUMBER = 1;
-  private volatile Object petOwnerUsername_;
+  public static final int PETOWNEREMAIL_FIELD_NUMBER = 1;
+  private volatile Object petOwnerEmail_;
   /**
-   * <code>string petOwnerUsername = 1;</code>
+   * <code>string petOwnerEmail = 1;</code>
    */
-  public String getPetOwnerUsername() {
-    Object ref = petOwnerUsername_;
+  public String getPetOwnerEmail() {
+    Object ref = petOwnerEmail_;
     if (ref instanceof String) {
       return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
-      petOwnerUsername_ = s;
+      petOwnerEmail_ = s;
       return s;
     }
   }
   /**
-   * <code>string petOwnerUsername = 1;</code>
+   * <code>string petOwnerEmail = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getPetOwnerUsernameBytes() {
-    Object ref = petOwnerUsername_;
+      getPetOwnerEmailBytes() {
+    Object ref = petOwnerEmail_;
     if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
-      petOwnerUsername_ = b;
+      petOwnerEmail_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -235,25 +229,46 @@ public  final class Announcement extends
     return getPet();
   }
 
-  public static final int ADDRESS_FIELD_NUMBER = 5;
-  private Address address_;
+  public static final int POSTALCODE_FIELD_NUMBER = 5;
+  private volatile Object postalCode_;
   /**
-   * <code>.Address address = 5;</code>
+   * <pre>
+   * address-&gt;string postal code
+   * </pre>
+   *
+   * <code>string postalCode = 5;</code>
    */
-  public boolean hasAddress() {
-    return address_ != null;
+  public String getPostalCode() {
+    Object ref = postalCode_;
+    if (ref instanceof String) {
+      return (String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      String s = bs.toStringUtf8();
+      postalCode_ = s;
+      return s;
+    }
   }
   /**
-   * <code>.Address address = 5;</code>
+   * <pre>
+   * address-&gt;string postal code
+   * </pre>
+   *
+   * <code>string postalCode = 5;</code>
    */
-  public Address getAddress() {
-    return address_ == null ? Address.getDefaultInstance() : address_;
-  }
-  /**
-   * <code>.Address address = 5;</code>
-   */
-  public AddressOrBuilder getAddressOrBuilder() {
-    return getAddress();
+  public com.google.protobuf.ByteString
+      getPostalCodeBytes() {
+    Object ref = postalCode_;
+    if (ref instanceof String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (String) ref);
+      postalCode_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int DATEOFCREATION_FIELD_NUMBER = 6;
@@ -302,8 +317,8 @@ public  final class Announcement extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getPetOwnerUsernameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, petOwnerUsername_);
+    if (!getPetOwnerEmailBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, petOwnerEmail_);
     }
     if (!getDescriptionBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
@@ -314,8 +329,8 @@ public  final class Announcement extends
     if (pet_ != null) {
       output.writeMessage(4, getPet());
     }
-    if (address_ != null) {
-      output.writeMessage(5, getAddress());
+    if (!getPostalCodeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, postalCode_);
     }
     if (!getDateOfCreationBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, dateOfCreation_);
@@ -327,8 +342,8 @@ public  final class Announcement extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getPetOwnerUsernameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, petOwnerUsername_);
+    if (!getPetOwnerEmailBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, petOwnerEmail_);
     }
     if (!getDescriptionBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
@@ -341,9 +356,8 @@ public  final class Announcement extends
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getPet());
     }
-    if (address_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(5, getAddress());
+    if (!getPostalCodeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, postalCode_);
     }
     if (!getDateOfCreationBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, dateOfCreation_);
@@ -364,8 +378,8 @@ public  final class Announcement extends
     Announcement other = (Announcement) obj;
 
     boolean result = true;
-    result = result && getPetOwnerUsername()
-        .equals(other.getPetOwnerUsername());
+    result = result && getPetOwnerEmail()
+        .equals(other.getPetOwnerEmail());
     result = result && getDescription()
         .equals(other.getDescription());
     result = result && (hasTimeInterval() == other.hasTimeInterval());
@@ -378,11 +392,8 @@ public  final class Announcement extends
       result = result && getPet()
           .equals(other.getPet());
     }
-    result = result && (hasAddress() == other.hasAddress());
-    if (hasAddress()) {
-      result = result && getAddress()
-          .equals(other.getAddress());
-    }
+    result = result && getPostalCode()
+        .equals(other.getPostalCode());
     result = result && getDateOfCreation()
         .equals(other.getDateOfCreation());
     return result;
@@ -395,8 +406,8 @@ public  final class Announcement extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PETOWNERUSERNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getPetOwnerUsername().hashCode();
+    hash = (37 * hash) + PETOWNEREMAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getPetOwnerEmail().hashCode();
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDescription().hashCode();
     if (hasTimeInterval()) {
@@ -407,10 +418,8 @@ public  final class Announcement extends
       hash = (37 * hash) + PET_FIELD_NUMBER;
       hash = (53 * hash) + getPet().hashCode();
     }
-    if (hasAddress()) {
-      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
-      hash = (53 * hash) + getAddress().hashCode();
-    }
+    hash = (37 * hash) + POSTALCODE_FIELD_NUMBER;
+    hash = (53 * hash) + getPostalCode().hashCode();
     hash = (37 * hash) + DATEOFCREATION_FIELD_NUMBER;
     hash = (53 * hash) + getDateOfCreation().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -542,7 +551,7 @@ public  final class Announcement extends
     }
     public Builder clear() {
       super.clear();
-      petOwnerUsername_ = "";
+      petOwnerEmail_ = "";
 
       description_ = "";
 
@@ -558,12 +567,8 @@ public  final class Announcement extends
         pet_ = null;
         petBuilder_ = null;
       }
-      if (addressBuilder_ == null) {
-        address_ = null;
-      } else {
-        address_ = null;
-        addressBuilder_ = null;
-      }
+      postalCode_ = "";
+
       dateOfCreation_ = "";
 
       return this;
@@ -588,7 +593,7 @@ public  final class Announcement extends
 
     public Announcement buildPartial() {
       Announcement result = new Announcement(this);
-      result.petOwnerUsername_ = petOwnerUsername_;
+      result.petOwnerEmail_ = petOwnerEmail_;
       result.description_ = description_;
       if (timeIntervalBuilder_ == null) {
         result.timeInterval_ = timeInterval_;
@@ -600,11 +605,7 @@ public  final class Announcement extends
       } else {
         result.pet_ = petBuilder_.build();
       }
-      if (addressBuilder_ == null) {
-        result.address_ = address_;
-      } else {
-        result.address_ = addressBuilder_.build();
-      }
+      result.postalCode_ = postalCode_;
       result.dateOfCreation_ = dateOfCreation_;
       onBuilt();
       return result;
@@ -647,8 +648,8 @@ public  final class Announcement extends
 
     public Builder mergeFrom(Announcement other) {
       if (other == Announcement.getDefaultInstance()) return this;
-      if (!other.getPetOwnerUsername().isEmpty()) {
-        petOwnerUsername_ = other.petOwnerUsername_;
+      if (!other.getPetOwnerEmail().isEmpty()) {
+        petOwnerEmail_ = other.petOwnerEmail_;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
@@ -661,8 +662,9 @@ public  final class Announcement extends
       if (other.hasPet()) {
         mergePet(other.getPet());
       }
-      if (other.hasAddress()) {
-        mergeAddress(other.getAddress());
+      if (!other.getPostalCode().isEmpty()) {
+        postalCode_ = other.postalCode_;
+        onChanged();
       }
       if (!other.getDateOfCreation().isEmpty()) {
         dateOfCreation_ = other.dateOfCreation_;
@@ -694,71 +696,71 @@ public  final class Announcement extends
       return this;
     }
 
-    private Object petOwnerUsername_ = "";
+    private Object petOwnerEmail_ = "";
     /**
-     * <code>string petOwnerUsername = 1;</code>
+     * <code>string petOwnerEmail = 1;</code>
      */
-    public String getPetOwnerUsername() {
-      Object ref = petOwnerUsername_;
+    public String getPetOwnerEmail() {
+      Object ref = petOwnerEmail_;
       if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
-        petOwnerUsername_ = s;
+        petOwnerEmail_ = s;
         return s;
       } else {
         return (String) ref;
       }
     }
     /**
-     * <code>string petOwnerUsername = 1;</code>
+     * <code>string petOwnerEmail = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getPetOwnerUsernameBytes() {
-      Object ref = petOwnerUsername_;
+        getPetOwnerEmailBytes() {
+      Object ref = petOwnerEmail_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        petOwnerUsername_ = b;
+        petOwnerEmail_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string petOwnerUsername = 1;</code>
+     * <code>string petOwnerEmail = 1;</code>
      */
-    public Builder setPetOwnerUsername(
+    public Builder setPetOwnerEmail(
         String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      petOwnerUsername_ = value;
+      petOwnerEmail_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string petOwnerUsername = 1;</code>
+     * <code>string petOwnerEmail = 1;</code>
      */
-    public Builder clearPetOwnerUsername() {
+    public Builder clearPetOwnerEmail() {
       
-      petOwnerUsername_ = getDefaultInstance().getPetOwnerUsername();
+      petOwnerEmail_ = getDefaultInstance().getPetOwnerEmail();
       onChanged();
       return this;
     }
     /**
-     * <code>string petOwnerUsername = 1;</code>
+     * <code>string petOwnerEmail = 1;</code>
      */
-    public Builder setPetOwnerUsernameBytes(
+    public Builder setPetOwnerEmailBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      petOwnerUsername_ = value;
+      petOwnerEmail_ = value;
       onChanged();
       return this;
     }
@@ -1066,121 +1068,93 @@ public  final class Announcement extends
       return petBuilder_;
     }
 
-    private Address address_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-            Address, Address.Builder, AddressOrBuilder> addressBuilder_;
+    private Object postalCode_ = "";
     /**
-     * <code>.Address address = 5;</code>
+     * <pre>
+     * address-&gt;string postal code
+     * </pre>
+     *
+     * <code>string postalCode = 5;</code>
      */
-    public boolean hasAddress() {
-      return addressBuilder_ != null || address_ != null;
-    }
-    /**
-     * <code>.Address address = 5;</code>
-     */
-    public Address getAddress() {
-      if (addressBuilder_ == null) {
-        return address_ == null ? Address.getDefaultInstance() : address_;
+    public String getPostalCode() {
+      Object ref = postalCode_;
+      if (!(ref instanceof String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        postalCode_ = s;
+        return s;
       } else {
-        return addressBuilder_.getMessage();
+        return (String) ref;
       }
     }
     /**
-     * <code>.Address address = 5;</code>
+     * <pre>
+     * address-&gt;string postal code
+     * </pre>
+     *
+     * <code>string postalCode = 5;</code>
      */
-    public Builder setAddress(Address value) {
-      if (addressBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        address_ = value;
-        onChanged();
+    public com.google.protobuf.ByteString
+        getPostalCodeBytes() {
+      Object ref = postalCode_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        postalCode_ = b;
+        return b;
       } else {
-        addressBuilder_.setMessage(value);
+        return (com.google.protobuf.ByteString) ref;
       }
-
-      return this;
     }
     /**
-     * <code>.Address address = 5;</code>
+     * <pre>
+     * address-&gt;string postal code
+     * </pre>
+     *
+     * <code>string postalCode = 5;</code>
      */
-    public Builder setAddress(
-        Address.Builder builderForValue) {
-      if (addressBuilder_ == null) {
-        address_ = builderForValue.build();
-        onChanged();
-      } else {
-        addressBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Address address = 5;</code>
-     */
-    public Builder mergeAddress(Address value) {
-      if (addressBuilder_ == null) {
-        if (address_ != null) {
-          address_ =
-            Address.newBuilder(address_).mergeFrom(value).buildPartial();
-        } else {
-          address_ = value;
-        }
-        onChanged();
-      } else {
-        addressBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Address address = 5;</code>
-     */
-    public Builder clearAddress() {
-      if (addressBuilder_ == null) {
-        address_ = null;
-        onChanged();
-      } else {
-        address_ = null;
-        addressBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.Address address = 5;</code>
-     */
-    public Address.Builder getAddressBuilder() {
-      
+    public Builder setPostalCode(
+        String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      postalCode_ = value;
       onChanged();
-      return getAddressFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.Address address = 5;</code>
+     * <pre>
+     * address-&gt;string postal code
+     * </pre>
+     *
+     * <code>string postalCode = 5;</code>
      */
-    public AddressOrBuilder getAddressOrBuilder() {
-      if (addressBuilder_ != null) {
-        return addressBuilder_.getMessageOrBuilder();
-      } else {
-        return address_ == null ?
-            Address.getDefaultInstance() : address_;
-      }
+    public Builder clearPostalCode() {
+      
+      postalCode_ = getDefaultInstance().getPostalCode();
+      onChanged();
+      return this;
     }
     /**
-     * <code>.Address address = 5;</code>
+     * <pre>
+     * address-&gt;string postal code
+     * </pre>
+     *
+     * <code>string postalCode = 5;</code>
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-            Address, Address.Builder, AddressOrBuilder>
-        getAddressFieldBuilder() {
-      if (addressBuilder_ == null) {
-        addressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                Address, Address.Builder, AddressOrBuilder>(
-                getAddress(),
-                getParentForChildren(),
-                isClean());
-        address_ = null;
-      }
-      return addressBuilder_;
+    public Builder setPostalCodeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      postalCode_ = value;
+      onChanged();
+      return this;
     }
 
     private Object dateOfCreation_ = "";

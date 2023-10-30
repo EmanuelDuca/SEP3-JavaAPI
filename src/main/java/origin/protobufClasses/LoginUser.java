@@ -15,7 +15,7 @@ public  final class LoginUser extends
     super(builder);
   }
   private LoginUser() {
-    username_ = "";
+    email_ = "";
     password_ = "";
   }
 
@@ -47,7 +47,7 @@ public  final class LoginUser extends
           case 10: {
             String s = input.readStringRequireUtf8();
 
-            username_ = s;
+            email_ = s;
             break;
           }
           case 18: {
@@ -79,34 +79,42 @@ public  final class LoginUser extends
             LoginUser.class, LoginUser.Builder.class);
   }
 
-  public static final int USERNAME_FIELD_NUMBER = 1;
-  private volatile Object username_;
+  public static final int EMAIL_FIELD_NUMBER = 1;
+  private volatile Object email_;
   /**
-   * <code>string username = 1;</code>
+   * <pre>
+   * username-&gt;email
+   * </pre>
+   *
+   * <code>string email = 1;</code>
    */
-  public String getUsername() {
-    Object ref = username_;
+  public String getEmail() {
+    Object ref = email_;
     if (ref instanceof String) {
       return (String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       String s = bs.toStringUtf8();
-      username_ = s;
+      email_ = s;
       return s;
     }
   }
   /**
-   * <code>string username = 1;</code>
+   * <pre>
+   * username-&gt;email
+   * </pre>
+   *
+   * <code>string email = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getUsernameBytes() {
-    Object ref = username_;
+      getEmailBytes() {
+    Object ref = email_;
     if (ref instanceof String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (String) ref);
-      username_ = b;
+      email_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -159,8 +167,8 @@ public  final class LoginUser extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getUsernameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, username_);
+    if (!getEmailBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, email_);
     }
     if (!getPasswordBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
@@ -172,8 +180,8 @@ public  final class LoginUser extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getUsernameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, username_);
+    if (!getEmailBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, email_);
     }
     if (!getPasswordBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
@@ -194,8 +202,8 @@ public  final class LoginUser extends
     LoginUser other = (LoginUser) obj;
 
     boolean result = true;
-    result = result && getUsername()
-        .equals(other.getUsername());
+    result = result && getEmail()
+        .equals(other.getEmail());
     result = result && getPassword()
         .equals(other.getPassword());
     return result;
@@ -208,8 +216,8 @@ public  final class LoginUser extends
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + USERNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getUsername().hashCode();
+    hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getEmail().hashCode();
     hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
     hash = (53 * hash) + getPassword().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -341,7 +349,7 @@ public  final class LoginUser extends
     }
     public Builder clear() {
       super.clear();
-      username_ = "";
+      email_ = "";
 
       password_ = "";
 
@@ -367,7 +375,7 @@ public  final class LoginUser extends
 
     public LoginUser buildPartial() {
       LoginUser result = new LoginUser(this);
-      result.username_ = username_;
+      result.email_ = email_;
       result.password_ = password_;
       onBuilt();
       return result;
@@ -410,8 +418,8 @@ public  final class LoginUser extends
 
     public Builder mergeFrom(LoginUser other) {
       if (other == LoginUser.getDefaultInstance()) return this;
-      if (!other.getUsername().isEmpty()) {
-        username_ = other.username_;
+      if (!other.getEmail().isEmpty()) {
+        email_ = other.email_;
         onChanged();
       }
       if (!other.getPassword().isEmpty()) {
@@ -444,71 +452,91 @@ public  final class LoginUser extends
       return this;
     }
 
-    private Object username_ = "";
+    private Object email_ = "";
     /**
-     * <code>string username = 1;</code>
+     * <pre>
+     * username-&gt;email
+     * </pre>
+     *
+     * <code>string email = 1;</code>
      */
-    public String getUsername() {
-      Object ref = username_;
+    public String getEmail() {
+      Object ref = email_;
       if (!(ref instanceof String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
-        username_ = s;
+        email_ = s;
         return s;
       } else {
         return (String) ref;
       }
     }
     /**
-     * <code>string username = 1;</code>
+     * <pre>
+     * username-&gt;email
+     * </pre>
+     *
+     * <code>string email = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getUsernameBytes() {
-      Object ref = username_;
+        getEmailBytes() {
+      Object ref = email_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
-        username_ = b;
+        email_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string username = 1;</code>
+     * <pre>
+     * username-&gt;email
+     * </pre>
+     *
+     * <code>string email = 1;</code>
      */
-    public Builder setUsername(
+    public Builder setEmail(
         String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      username_ = value;
+      email_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string username = 1;</code>
+     * <pre>
+     * username-&gt;email
+     * </pre>
+     *
+     * <code>string email = 1;</code>
      */
-    public Builder clearUsername() {
+    public Builder clearEmail() {
       
-      username_ = getDefaultInstance().getUsername();
+      email_ = getDefaultInstance().getEmail();
       onChanged();
       return this;
     }
     /**
-     * <code>string username = 1;</code>
+     * <pre>
+     * username-&gt;email
+     * </pre>
+     *
+     * <code>string email = 1;</code>
      */
-    public Builder setUsernameBytes(
+    public Builder setEmailBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      username_ = value;
+      email_ = value;
       onChanged();
       return this;
     }

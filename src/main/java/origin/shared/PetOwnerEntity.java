@@ -5,33 +5,23 @@ import java.io.Serializable;
 public class PetOwnerEntity implements Serializable {
     private String username;
     private String password;
-    private String f_name;
-    private String l_name;
     private int age;
     private String phone;
     private String email;
 
     public PetOwnerEntity(String username, String password) {
-        this.username = username;
+        this.email = username;
         this.password = password;
     }
 
-    public PetOwnerEntity(String username, String password, String f_name, String l_name, int age, String phone, String email) {
+    public PetOwnerEntity(String username, String password, int age, String phone, String email) {
         this.username = username;
         this.password = password;
-        this.f_name = f_name;
-        this.l_name = l_name;
         this.age = age;
         this.phone = phone;
         this.email = email;
     }
 
-    public PetOwnerEntity(String username, String password, String f_name, String l_name) {
-        this.username = username;
-        this.password = password;
-        this.f_name = f_name;
-        this.l_name = l_name;
-    }
 
     public PetOwnerEntity() {
     }
@@ -47,22 +37,6 @@ public class PetOwnerEntity implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getF_name() {
-        return f_name;
-    }
-
-    public void setF_name(String f_name) {
-        this.f_name = f_name;
-    }
-
-    public String getL_name() {
-        return l_name;
-    }
-
-    public void setL_name(String l_name) {
-        this.l_name = l_name;
     }
 
     public int getAge() {

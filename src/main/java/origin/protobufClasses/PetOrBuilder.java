@@ -36,36 +36,21 @@ public interface PetOrBuilder extends
       getPetTypeBytes();
 
   /**
-   * <code>string Race = 3;</code>
-   */
-  String getRace();
-  /**
-   * <code>string Race = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getRaceBytes();
-
-  /**
-   * <code>int32 weight = 4;</code>
+   * <code>int32 weight = 3;</code>
    */
   int getWeight();
 
   /**
-   * <code>bool isVaccinated = 5;</code>
+   * <code>bool isVaccinated = 4;</code>
    */
   boolean getIsVaccinated();
 
   /**
-   * <code>bool needWalks = 6;</code>
-   */
-  boolean getNeedWalks();
-
-  /**
-   * <code>string dietDescription = 7;</code>
+   * <code>string dietDescription = 5;</code>
    */
   String getDietDescription();
   /**
-   * <code>string dietDescription = 7;</code>
+   * <code>string dietDescription = 5;</code>
    */
   com.google.protobuf.ByteString
       getDietDescriptionBytes();

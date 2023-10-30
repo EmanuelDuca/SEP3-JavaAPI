@@ -3,9 +3,11 @@ package origin.services;
 import io.grpc.stub.StreamObserver;
 import origin.DAOInterfaces.PetOwnerDAOInterface;
 import origin.mappers.PetOwnerMapper;
-import origin.protobufClasses.*;
+import origin.protobufClasses.LoginUser;
+import origin.protobufClasses.PetOwner;
+import origin.protobufClasses.PetOwnerServiceGrpc;
+import origin.protobufClasses.SearchField;
 import origin.shared.PetOwnerEntity;
-import origin.protobufClasses.Void;
 
 
 
@@ -17,20 +19,21 @@ public class PetOwnerService extends PetOwnerServiceGrpc.PetOwnerServiceImplBase
     @Override
     public void loginPetOwner(LoginUser request, StreamObserver<PetOwner> responseObserver)
     {
-        PetOwnerEntity petOwner = new PetOwnerEntity(request.getUsername(), request.getPassword());
+        PetOwnerEntity petOwner = new PetOwnerEntity(request.getEmail(), request.getPassword());
         PetOwnerEntity loginUser = petOwnerDAO.loginPetOwner(petOwner);
         responseObserver.onNext(PetOwnerMapper.mapProto(loginUser));
         responseObserver.onCompleted();
     }
 
     @Override
-    public void createPetOwner(RegisterPetOwner request, StreamObserver<PetOwner> responseObserver)
+    public void createPetOwner(PetOwner request, StreamObserver<PetOwner> responseObserver)
     {
         PetOwnerEntity petOwner = new PetOwnerEntity(
                 request.getUsername(),
                 request.getPassword(),
-                request.getFName(),
-                request.getLName());
+                request.getAge(),
+                request.getPhone(),
+                request.getEmail());
         PetOwnerEntity registerPetOwner = petOwnerDAO.registerUser(petOwner);
         responseObserver.onNext(PetOwnerMapper.mapProto(registerPetOwner));
         responseObserver.onCompleted();
@@ -48,23 +51,9 @@ public class PetOwnerService extends PetOwnerServiceGrpc.PetOwnerServiceImplBase
         }
         else
         {
-            responseObserver.onError(new Exception("Error: There is no Pet Owner with such a username"));
+            responseObserver.onError(new Exception("Error: There is no Pet Owner with such an email"));
         }
     }
 
-    @Override
-    public void updatePetOwnerInformation(PetOwnerInfo request,
-                                          StreamObserver<origin.protobufClasses.Void> responseObserver)
-    {
-        PetOwnerEntity petOwner = new PetOwnerEntity();
-        petOwner.setUsername(request.getUsername());
-        petOwner.setF_name(request.getFName());
-        petOwner.setL_name(request.getLName());
-        petOwner.setPhone(request.getPhone());
-        petOwner.setEmail(request.getEmail());
-        petOwnerDAO.updatePetOwnerInformation(petOwner);
-        responseObserver.onNext(Void.newBuilder().build());
-        responseObserver.onCompleted();
-    }
 
 }

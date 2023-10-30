@@ -96,9 +96,6 @@ public final class AnnouncementServiceGrpc {
   public static abstract class AnnouncementServiceImplBase implements io.grpc.BindableService {
 
     /**
-     * <pre>
-     * maybe createAnnouncement message would be better
-     * </pre>
      */
     public void createAnnouncement(Announcement request,
                                    io.grpc.stub.StreamObserver<Announcement> responseObserver) {
@@ -113,9 +110,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * not sure about void
-     * </pre>
      */
     public void updateAnnouncement(Announcement request,
                                    io.grpc.stub.StreamObserver<Void> responseObserver) {
@@ -123,9 +117,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * not sure about void
-     * </pre>
      */
     public void deleteAnnouncement(Announcement request,
                                    io.grpc.stub.StreamObserver<Void> responseObserver) {
@@ -185,9 +176,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * maybe createAnnouncement message would be better
-     * </pre>
      */
     public void createAnnouncement(Announcement request,
                                    io.grpc.stub.StreamObserver<Announcement> responseObserver) {
@@ -204,9 +192,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * not sure about void
-     * </pre>
      */
     public void updateAnnouncement(Announcement request,
                                    io.grpc.stub.StreamObserver<Void> responseObserver) {
@@ -215,9 +200,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * not sure about void
-     * </pre>
      */
     public void deleteAnnouncement(Announcement request,
                                    io.grpc.stub.StreamObserver<Void> responseObserver) {
@@ -245,9 +227,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * maybe createAnnouncement message would be better
-     * </pre>
      */
     public Announcement createAnnouncement(Announcement request) {
       return blockingUnaryCall(
@@ -262,9 +241,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * not sure about void
-     * </pre>
      */
     public Void updateAnnouncement(Announcement request) {
       return blockingUnaryCall(
@@ -272,9 +248,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * not sure about void
-     * </pre>
      */
     public Void deleteAnnouncement(Announcement request) {
       return blockingUnaryCall(
@@ -301,9 +274,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * maybe createAnnouncement message would be better
-     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<Announcement> createAnnouncement(
         Announcement request) {
@@ -320,9 +290,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * not sure about void
-     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<Void> updateAnnouncement(
         Announcement request) {
@@ -331,9 +298,6 @@ public final class AnnouncementServiceGrpc {
     }
 
     /**
-     * <pre>
-     * not sure about void
-     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<Void> deleteAnnouncement(
         Announcement request) {

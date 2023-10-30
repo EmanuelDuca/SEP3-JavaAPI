@@ -28,46 +28,26 @@ public interface PetOwnerOrBuilder extends
       getPasswordBytes();
 
   /**
-   * <code>string f_name = 3;</code>
-   */
-  String getFName();
-  /**
-   * <code>string f_name = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getFNameBytes();
-
-  /**
-   * <code>string l_name = 4;</code>
-   */
-  String getLName();
-  /**
-   * <code>string l_name = 4;</code>
-   */
-  com.google.protobuf.ByteString
-      getLNameBytes();
-
-  /**
-   * <code>int32 age = 5;</code>
+   * <code>int32 age = 3;</code>
    */
   int getAge();
 
   /**
-   * <code>string phone = 6;</code>
+   * <code>string phone = 4;</code>
    */
   String getPhone();
   /**
-   * <code>string phone = 6;</code>
+   * <code>string phone = 4;</code>
    */
   com.google.protobuf.ByteString
       getPhoneBytes();
 
   /**
-   * <code>string email = 7;</code>
+   * <code>string email = 5;</code>
    */
   String getEmail();
   /**
-   * <code>string email = 7;</code>
+   * <code>string email = 5;</code>
    */
   com.google.protobuf.ByteString
       getEmailBytes();

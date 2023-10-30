@@ -17,10 +17,8 @@ public  final class Pet extends
   private Pet() {
     petName_ = "";
     petType_ = "";
-    race_ = "";
     weight_ = 0;
     isVaccinated_ = false;
-    needWalks_ = false;
     dietDescription_ = "";
   }
 
@@ -61,28 +59,17 @@ public  final class Pet extends
             petType_ = s;
             break;
           }
-          case 26: {
-            String s = input.readStringRequireUtf8();
-
-            race_ = s;
-            break;
-          }
-          case 32: {
+          case 24: {
 
             weight_ = input.readInt32();
             break;
           }
-          case 40: {
+          case 32: {
 
             isVaccinated_ = input.readBool();
             break;
           }
-          case 48: {
-
-            needWalks_ = input.readBool();
-            break;
-          }
-          case 58: {
+          case 42: {
             String s = input.readStringRequireUtf8();
 
             dietDescription_ = s;
@@ -187,71 +174,28 @@ public  final class Pet extends
     }
   }
 
-  public static final int RACE_FIELD_NUMBER = 3;
-  private volatile Object race_;
-  /**
-   * <code>string Race = 3;</code>
-   */
-  public String getRace() {
-    Object ref = race_;
-    if (ref instanceof String) {
-      return (String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      String s = bs.toStringUtf8();
-      race_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string Race = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getRaceBytes() {
-    Object ref = race_;
-    if (ref instanceof String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (String) ref);
-      race_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int WEIGHT_FIELD_NUMBER = 4;
+  public static final int WEIGHT_FIELD_NUMBER = 3;
   private int weight_;
   /**
-   * <code>int32 weight = 4;</code>
+   * <code>int32 weight = 3;</code>
    */
   public int getWeight() {
     return weight_;
   }
 
-  public static final int ISVACCINATED_FIELD_NUMBER = 5;
+  public static final int ISVACCINATED_FIELD_NUMBER = 4;
   private boolean isVaccinated_;
   /**
-   * <code>bool isVaccinated = 5;</code>
+   * <code>bool isVaccinated = 4;</code>
    */
   public boolean getIsVaccinated() {
     return isVaccinated_;
   }
 
-  public static final int NEEDWALKS_FIELD_NUMBER = 6;
-  private boolean needWalks_;
-  /**
-   * <code>bool needWalks = 6;</code>
-   */
-  public boolean getNeedWalks() {
-    return needWalks_;
-  }
-
-  public static final int DIETDESCRIPTION_FIELD_NUMBER = 7;
+  public static final int DIETDESCRIPTION_FIELD_NUMBER = 5;
   private volatile Object dietDescription_;
   /**
-   * <code>string dietDescription = 7;</code>
+   * <code>string dietDescription = 5;</code>
    */
   public String getDietDescription() {
     Object ref = dietDescription_;
@@ -266,7 +210,7 @@ public  final class Pet extends
     }
   }
   /**
-   * <code>string dietDescription = 7;</code>
+   * <code>string dietDescription = 5;</code>
    */
   public com.google.protobuf.ByteString
       getDietDescriptionBytes() {
@@ -300,20 +244,14 @@ public  final class Pet extends
     if (!getPetTypeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, petType_);
     }
-    if (!getRaceBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, race_);
-    }
     if (weight_ != 0) {
-      output.writeInt32(4, weight_);
+      output.writeInt32(3, weight_);
     }
     if (isVaccinated_ != false) {
-      output.writeBool(5, isVaccinated_);
-    }
-    if (needWalks_ != false) {
-      output.writeBool(6, needWalks_);
+      output.writeBool(4, isVaccinated_);
     }
     if (!getDietDescriptionBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, dietDescription_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, dietDescription_);
     }
   }
 
@@ -328,23 +266,16 @@ public  final class Pet extends
     if (!getPetTypeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, petType_);
     }
-    if (!getRaceBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, race_);
-    }
     if (weight_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, weight_);
+        .computeInt32Size(3, weight_);
     }
     if (isVaccinated_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(5, isVaccinated_);
-    }
-    if (needWalks_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(6, needWalks_);
+        .computeBoolSize(4, isVaccinated_);
     }
     if (!getDietDescriptionBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, dietDescription_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, dietDescription_);
     }
     memoizedSize = size;
     return size;
@@ -366,14 +297,10 @@ public  final class Pet extends
         .equals(other.getPetName());
     result = result && getPetType()
         .equals(other.getPetType());
-    result = result && getRace()
-        .equals(other.getRace());
     result = result && (getWeight()
         == other.getWeight());
     result = result && (getIsVaccinated()
         == other.getIsVaccinated());
-    result = result && (getNeedWalks()
-        == other.getNeedWalks());
     result = result && getDietDescription()
         .equals(other.getDietDescription());
     return result;
@@ -390,16 +317,11 @@ public  final class Pet extends
     hash = (53 * hash) + getPetName().hashCode();
     hash = (37 * hash) + PETTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getPetType().hashCode();
-    hash = (37 * hash) + RACE_FIELD_NUMBER;
-    hash = (53 * hash) + getRace().hashCode();
     hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
     hash = (53 * hash) + getWeight();
     hash = (37 * hash) + ISVACCINATED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIsVaccinated());
-    hash = (37 * hash) + NEEDWALKS_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getNeedWalks());
     hash = (37 * hash) + DIETDESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDietDescription().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -535,13 +457,9 @@ public  final class Pet extends
 
       petType_ = "";
 
-      race_ = "";
-
       weight_ = 0;
 
       isVaccinated_ = false;
-
-      needWalks_ = false;
 
       dietDescription_ = "";
 
@@ -569,10 +487,8 @@ public  final class Pet extends
       Pet result = new Pet(this);
       result.petName_ = petName_;
       result.petType_ = petType_;
-      result.race_ = race_;
       result.weight_ = weight_;
       result.isVaccinated_ = isVaccinated_;
-      result.needWalks_ = needWalks_;
       result.dietDescription_ = dietDescription_;
       onBuilt();
       return result;
@@ -623,18 +539,11 @@ public  final class Pet extends
         petType_ = other.petType_;
         onChanged();
       }
-      if (!other.getRace().isEmpty()) {
-        race_ = other.race_;
-        onChanged();
-      }
       if (other.getWeight() != 0) {
         setWeight(other.getWeight());
       }
       if (other.getIsVaccinated() != false) {
         setIsVaccinated(other.getIsVaccinated());
-      }
-      if (other.getNeedWalks() != false) {
-        setNeedWalks(other.getNeedWalks());
       }
       if (!other.getDietDescription().isEmpty()) {
         dietDescription_ = other.dietDescription_;
@@ -824,84 +733,15 @@ public  final class Pet extends
       return this;
     }
 
-    private Object race_ = "";
-    /**
-     * <code>string Race = 3;</code>
-     */
-    public String getRace() {
-      Object ref = race_;
-      if (!(ref instanceof String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        race_ = s;
-        return s;
-      } else {
-        return (String) ref;
-      }
-    }
-    /**
-     * <code>string Race = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getRaceBytes() {
-      Object ref = race_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        race_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string Race = 3;</code>
-     */
-    public Builder setRace(
-        String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      race_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string Race = 3;</code>
-     */
-    public Builder clearRace() {
-      
-      race_ = getDefaultInstance().getRace();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string Race = 3;</code>
-     */
-    public Builder setRaceBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      race_ = value;
-      onChanged();
-      return this;
-    }
-
     private int weight_ ;
     /**
-     * <code>int32 weight = 4;</code>
+     * <code>int32 weight = 3;</code>
      */
     public int getWeight() {
       return weight_;
     }
     /**
-     * <code>int32 weight = 4;</code>
+     * <code>int32 weight = 3;</code>
      */
     public Builder setWeight(int value) {
       
@@ -910,7 +750,7 @@ public  final class Pet extends
       return this;
     }
     /**
-     * <code>int32 weight = 4;</code>
+     * <code>int32 weight = 3;</code>
      */
     public Builder clearWeight() {
       
@@ -921,13 +761,13 @@ public  final class Pet extends
 
     private boolean isVaccinated_ ;
     /**
-     * <code>bool isVaccinated = 5;</code>
+     * <code>bool isVaccinated = 4;</code>
      */
     public boolean getIsVaccinated() {
       return isVaccinated_;
     }
     /**
-     * <code>bool isVaccinated = 5;</code>
+     * <code>bool isVaccinated = 4;</code>
      */
     public Builder setIsVaccinated(boolean value) {
       
@@ -936,7 +776,7 @@ public  final class Pet extends
       return this;
     }
     /**
-     * <code>bool isVaccinated = 5;</code>
+     * <code>bool isVaccinated = 4;</code>
      */
     public Builder clearIsVaccinated() {
       
@@ -945,35 +785,9 @@ public  final class Pet extends
       return this;
     }
 
-    private boolean needWalks_ ;
-    /**
-     * <code>bool needWalks = 6;</code>
-     */
-    public boolean getNeedWalks() {
-      return needWalks_;
-    }
-    /**
-     * <code>bool needWalks = 6;</code>
-     */
-    public Builder setNeedWalks(boolean value) {
-      
-      needWalks_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool needWalks = 6;</code>
-     */
-    public Builder clearNeedWalks() {
-      
-      needWalks_ = false;
-      onChanged();
-      return this;
-    }
-
     private Object dietDescription_ = "";
     /**
-     * <code>string dietDescription = 7;</code>
+     * <code>string dietDescription = 5;</code>
      */
     public String getDietDescription() {
       Object ref = dietDescription_;
@@ -988,7 +802,7 @@ public  final class Pet extends
       }
     }
     /**
-     * <code>string dietDescription = 7;</code>
+     * <code>string dietDescription = 5;</code>
      */
     public com.google.protobuf.ByteString
         getDietDescriptionBytes() {
@@ -1004,7 +818,7 @@ public  final class Pet extends
       }
     }
     /**
-     * <code>string dietDescription = 7;</code>
+     * <code>string dietDescription = 5;</code>
      */
     public Builder setDietDescription(
         String value) {
@@ -1017,7 +831,7 @@ public  final class Pet extends
       return this;
     }
     /**
-     * <code>string dietDescription = 7;</code>
+     * <code>string dietDescription = 5;</code>
      */
     public Builder clearDietDescription() {
       
@@ -1026,7 +840,7 @@ public  final class Pet extends
       return this;
     }
     /**
-     * <code>string dietDescription = 7;</code>
+     * <code>string dietDescription = 5;</code>
      */
     public Builder setDietDescriptionBytes(
         com.google.protobuf.ByteString value) {

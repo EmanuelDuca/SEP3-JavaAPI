@@ -20,20 +20,10 @@ public final class Protobuf {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_PetOwner_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RegisterPetOwner_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RegisterPetOwner_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_LoginUser_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_LoginUser_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_PetOwnerInfo_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_PetOwnerInfo_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Announcement_descriptor;
   static final 
@@ -55,11 +45,6 @@ public final class Protobuf {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_TimeInterval_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Address_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Address_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SearchField_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -79,40 +64,30 @@ public final class Protobuf {
   static {
     String[] descriptorData = {
       "\n\016protobuf.proto\032\037google/protobuf/timest" +
-      "amp.proto\"y\n\010PetOwner\022\020\n\010username\030\001 \001(\t\022" +
-      "\020\n\010password\030\002 \001(\t\022\016\n\006f_name\030\003 \001(\t\022\016\n\006l_n" +
-      "ame\030\004 \001(\t\022\013\n\003age\030\005 \001(\005\022\r\n\005phone\030\006 \001(\t\022\r\n" +
-      "\005email\030\007 \001(\t\"V\n\020RegisterPetOwner\022\020\n\010user" +
-      "name\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\016\n\006f_name\030\003" +
-      " \001(\t\022\016\n\006l_name\030\004 \001(\t\"/\n\tLoginUser\022\020\n\010use" +
-      "rname\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"^\n\014PetOwne" +
-      "rInfo\022\020\n\010username\030\001 \001(\t\022\016\n\006f_name\030\002 \001(\t\022" +
-      "\016\n\006l_name\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\r\n\005email\030",
-      "\005 \001(\t\"\250\001\n\014Announcement\022\030\n\020petOwnerUserna" +
-      "me\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\022#\n\014timeInt" +
-      "erval\030\003 \001(\0132\r.TimeInterval\022\021\n\003pet\030\004 \001(\0132" +
-      "\004.Pet\022\031\n\007address\030\005 \001(\0132\010.Address\022\026\n\016date" +
-      "OfCreation\030\006 \001(\t\"5\n\rAnnouncements\022$\n\rann" +
-      "ouncements\030\001 \003(\0132\r.Announcement\"\207\001\n\003Pet\022" +
-      "\017\n\007petName\030\001 \001(\t\022\017\n\007petType\030\002 \001(\t\022\014\n\004Rac" +
-      "e\030\003 \001(\t\022\016\n\006weight\030\004 \001(\005\022\024\n\014isVaccinated\030" +
-      "\005 \001(\010\022\021\n\tneedWalks\030\006 \001(\010\022\027\n\017dietDescript" +
-      "ion\030\007 \001(\t\"5\n\014TimeInterval\022\021\n\tstartDate\030\001",
-      " \001(\t\022\022\n\nfinishDate\030\002 \001(\t\"E\n\007Address\022\017\n\007c" +
-      "ountry\030\001 \001(\t\022\014\n\004city\030\002 \001(\t\022\013\n\003zip\030\003 \001(\t\022" +
-      "\016\n\006street\030\004 \001(\t\"\035\n\013SearchField\022\016\n\006search" +
-      "\030\001 \001(\t\"\006\n\004Void2\305\001\n\017PetOwnerService\022.\n\016Cr" +
-      "eatePetOwner\022\021.RegisterPetOwner\032\t.PetOwn" +
-      "er\022&\n\rLoginPetOwner\022\n.LoginUser\032\t.PetOwn" +
-      "er\022\'\n\014FindPetOwner\022\014.SearchField\032\t.PetOw" +
-      "ner\0221\n\031UpdatePetOwnerInformation\022\r.PetOw" +
-      "nerInfo\032\005.Void2\324\001\n\023AnnouncementService\0222" +
-      "\n\022CreateAnnouncement\022\r.Announcement\032\r.An",
-      "nouncement\0221\n\021FindAnnouncements\022\014.Search" +
-      "Field\032\016.Announcements\022*\n\022UpdateAnnouncem" +
-      "ent\022\r.Announcement\032\005.Void\022*\n\022DeleteAnnou" +
-      "ncement\022\r.Announcement\032\005.VoidB\023\n\017origin." +
-      "protobufP\001b\006proto3"
+      "amp.proto\"Y\n\010PetOwner\022\020\n\010username\030\001 \001(\t\022" +
+      "\020\n\010password\030\002 \001(\t\022\013\n\003age\030\003 \001(\005\022\r\n\005phone\030" +
+      "\004 \001(\t\022\r\n\005email\030\005 \001(\t\",\n\tLoginUser\022\r\n\005ema" +
+      "il\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\236\001\n\014Announcem" +
+      "ent\022\025\n\rpetOwnerEmail\030\001 \001(\t\022\023\n\013descriptio" +
+      "n\030\002 \001(\t\022#\n\014timeInterval\030\003 \001(\0132\r.TimeInte" +
+      "rval\022\021\n\003pet\030\004 \001(\0132\004.Pet\022\022\n\npostalCode\030\005 " +
+      "\001(\t\022\026\n\016dateOfCreation\030\006 \001(\t\"5\n\rAnnouncem" +
+      "ents\022$\n\rannouncements\030\001 \003(\0132\r.Announceme",
+      "nt\"f\n\003Pet\022\017\n\007petName\030\001 \001(\t\022\017\n\007petType\030\002 " +
+      "\001(\t\022\016\n\006weight\030\003 \001(\005\022\024\n\014isVaccinated\030\004 \001(" +
+      "\010\022\027\n\017dietDescription\030\005 \001(\t\"5\n\014TimeInterv" +
+      "al\022\021\n\tstartDate\030\001 \001(\t\022\022\n\nfinishDate\030\002 \001(" +
+      "\t\"\035\n\013SearchField\022\016\n\006search\030\001 \001(\t\"\006\n\004Void" +
+      "2\212\001\n\017PetOwnerService\022&\n\016CreatePetOwner\022\t" +
+      ".PetOwner\032\t.PetOwner\022&\n\rLoginPetOwner\022\n." +
+      "LoginUser\032\t.PetOwner\022\'\n\014FindPetOwner\022\014.S" +
+      "earchField\032\t.PetOwner2\324\001\n\023AnnouncementSe" +
+      "rvice\0222\n\022CreateAnnouncement\022\r.Announceme",
+      "nt\032\r.Announcement\0221\n\021FindAnnouncements\022\014" +
+      ".SearchField\032\016.Announcements\022*\n\022UpdateAn" +
+      "nouncement\022\r.Announcement\032\005.Void\022*\n\022Dele" +
+      "teAnnouncement\022\r.Announcement\032\005.VoidB\023\n\017" +
+      "origin.protobufP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -132,63 +107,45 @@ public final class Protobuf {
     internal_static_PetOwner_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PetOwner_descriptor,
-        new String[] { "Username", "Password", "FName", "LName", "Age", "Phone", "Email", });
-    internal_static_RegisterPetOwner_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_RegisterPetOwner_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RegisterPetOwner_descriptor,
-        new String[] { "Username", "Password", "FName", "LName", });
+        new String[] { "Username", "Password", "Age", "Phone", "Email", });
     internal_static_LoginUser_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_LoginUser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_LoginUser_descriptor,
-        new String[] { "Username", "Password", });
-    internal_static_PetOwnerInfo_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_PetOwnerInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_PetOwnerInfo_descriptor,
-        new String[] { "Username", "FName", "LName", "Phone", "Email", });
+        new String[] { "Email", "Password", });
     internal_static_Announcement_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_Announcement_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Announcement_descriptor,
-        new String[] { "PetOwnerUsername", "Description", "TimeInterval", "Pet", "Address", "DateOfCreation", });
+        new String[] { "PetOwnerEmail", "Description", "TimeInterval", "Pet", "PostalCode", "DateOfCreation", });
     internal_static_Announcements_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_Announcements_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Announcements_descriptor,
         new String[] { "Announcements", });
     internal_static_Pet_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_Pet_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Pet_descriptor,
-        new String[] { "PetName", "PetType", "Race", "Weight", "IsVaccinated", "NeedWalks", "DietDescription", });
+        new String[] { "PetName", "PetType", "Weight", "IsVaccinated", "DietDescription", });
     internal_static_TimeInterval_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_TimeInterval_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TimeInterval_descriptor,
         new String[] { "StartDate", "FinishDate", });
-    internal_static_Address_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_Address_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Address_descriptor,
-        new String[] { "Country", "City", "Zip", "Street", });
     internal_static_SearchField_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_SearchField_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SearchField_descriptor,
         new String[] { "Search", });
     internal_static_Void_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_Void_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Void_descriptor,

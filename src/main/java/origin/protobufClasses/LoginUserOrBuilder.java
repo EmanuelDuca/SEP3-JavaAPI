@@ -8,14 +8,22 @@ public interface LoginUserOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string username = 1;</code>
+   * <pre>
+   * username-&gt;email
+   * </pre>
+   *
+   * <code>string email = 1;</code>
    */
-  String getUsername();
+  String getEmail();
   /**
-   * <code>string username = 1;</code>
+   * <pre>
+   * username-&gt;email
+   * </pre>
+   *
+   * <code>string email = 1;</code>
    */
   com.google.protobuf.ByteString
-      getUsernameBytes();
+      getEmailBytes();
 
   /**
    * <code>string password = 2;</code>

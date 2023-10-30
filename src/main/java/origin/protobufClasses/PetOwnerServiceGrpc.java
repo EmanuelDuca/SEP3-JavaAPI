@@ -20,14 +20,14 @@ public final class PetOwnerServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<RegisterPetOwner,
+  public static final io.grpc.MethodDescriptor<PetOwner,
           PetOwner> METHOD_CREATE_PET_OWNER =
-      io.grpc.MethodDescriptor.<RegisterPetOwner, PetOwner>newBuilder()
+      io.grpc.MethodDescriptor.<PetOwner, PetOwner>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "PetOwnerService", "CreatePetOwner"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              RegisterPetOwner.getDefaultInstance()))
+              PetOwner.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               PetOwner.getDefaultInstance()))
           .build();
@@ -54,18 +54,6 @@ public final class PetOwnerServiceGrpc {
               SearchField.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               PetOwner.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<PetOwnerInfo,
-          Void> METHOD_UPDATE_PET_OWNER_INFORMATION =
-      io.grpc.MethodDescriptor.<PetOwnerInfo, Void>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "PetOwnerService", "UpdatePetOwnerInformation"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              PetOwnerInfo.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              Void.getDefaultInstance()))
           .build();
 
   /**
@@ -97,7 +85,7 @@ public final class PetOwnerServiceGrpc {
 
     /**
      */
-    public void createPetOwner(RegisterPetOwner request,
+    public void createPetOwner(PetOwner request,
                                io.grpc.stub.StreamObserver<PetOwner> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_CREATE_PET_OWNER, responseObserver);
     }
@@ -110,23 +98,10 @@ public final class PetOwnerServiceGrpc {
     }
 
     /**
-     * <pre>
-     * return with password, so be careful
-     * </pre>
      */
     public void findPetOwner(SearchField request,
                              io.grpc.stub.StreamObserver<PetOwner> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_FIND_PET_OWNER, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * not sure about void
-     * </pre>
-     */
-    public void updatePetOwnerInformation(PetOwnerInfo request,
-                                          io.grpc.stub.StreamObserver<Void> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_UPDATE_PET_OWNER_INFORMATION, responseObserver);
     }
 
     @Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -135,7 +110,7 @@ public final class PetOwnerServiceGrpc {
             METHOD_CREATE_PET_OWNER,
             asyncUnaryCall(
               new MethodHandlers<
-                      RegisterPetOwner,
+                      PetOwner,
                       PetOwner>(
                   this, METHODID_CREATE_PET_OWNER)))
           .addMethod(
@@ -152,13 +127,6 @@ public final class PetOwnerServiceGrpc {
                       SearchField,
                       PetOwner>(
                   this, METHODID_FIND_PET_OWNER)))
-          .addMethod(
-            METHOD_UPDATE_PET_OWNER_INFORMATION,
-            asyncUnaryCall(
-              new MethodHandlers<
-                      PetOwnerInfo,
-                      Void>(
-                  this, METHODID_UPDATE_PET_OWNER_INFORMATION)))
           .build();
     }
   }
@@ -183,7 +151,7 @@ public final class PetOwnerServiceGrpc {
 
     /**
      */
-    public void createPetOwner(RegisterPetOwner request,
+    public void createPetOwner(PetOwner request,
                                io.grpc.stub.StreamObserver<PetOwner> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_CREATE_PET_OWNER, getCallOptions()), request, responseObserver);
@@ -198,25 +166,11 @@ public final class PetOwnerServiceGrpc {
     }
 
     /**
-     * <pre>
-     * return with password, so be careful
-     * </pre>
      */
     public void findPetOwner(SearchField request,
                              io.grpc.stub.StreamObserver<PetOwner> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_FIND_PET_OWNER, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
-     * not sure about void
-     * </pre>
-     */
-    public void updatePetOwnerInformation(PetOwnerInfo request,
-                                          io.grpc.stub.StreamObserver<Void> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_UPDATE_PET_OWNER_INFORMATION, getCallOptions()), request, responseObserver);
     }
   }
 
@@ -240,7 +194,7 @@ public final class PetOwnerServiceGrpc {
 
     /**
      */
-    public PetOwner createPetOwner(RegisterPetOwner request) {
+    public PetOwner createPetOwner(PetOwner request) {
       return blockingUnaryCall(
           getChannel(), METHOD_CREATE_PET_OWNER, getCallOptions(), request);
     }
@@ -253,23 +207,10 @@ public final class PetOwnerServiceGrpc {
     }
 
     /**
-     * <pre>
-     * return with password, so be careful
-     * </pre>
      */
     public PetOwner findPetOwner(SearchField request) {
       return blockingUnaryCall(
           getChannel(), METHOD_FIND_PET_OWNER, getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * not sure about void
-     * </pre>
-     */
-    public Void updatePetOwnerInformation(PetOwnerInfo request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_UPDATE_PET_OWNER_INFORMATION, getCallOptions(), request);
     }
   }
 
@@ -294,7 +235,7 @@ public final class PetOwnerServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<PetOwner> createPetOwner(
-        RegisterPetOwner request) {
+        PetOwner request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_CREATE_PET_OWNER, getCallOptions()), request);
     }
@@ -308,32 +249,17 @@ public final class PetOwnerServiceGrpc {
     }
 
     /**
-     * <pre>
-     * return with password, so be careful
-     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<PetOwner> findPetOwner(
         SearchField request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_FIND_PET_OWNER, getCallOptions()), request);
     }
-
-    /**
-     * <pre>
-     * not sure about void
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<Void> updatePetOwnerInformation(
-        PetOwnerInfo request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_UPDATE_PET_OWNER_INFORMATION, getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_CREATE_PET_OWNER = 0;
   private static final int METHODID_LOGIN_PET_OWNER = 1;
   private static final int METHODID_FIND_PET_OWNER = 2;
-  private static final int METHODID_UPDATE_PET_OWNER_INFORMATION = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -353,7 +279,7 @@ public final class PetOwnerServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_PET_OWNER:
-          serviceImpl.createPetOwner((RegisterPetOwner) request,
+          serviceImpl.createPetOwner((PetOwner) request,
               (io.grpc.stub.StreamObserver<PetOwner>) responseObserver);
           break;
         case METHODID_LOGIN_PET_OWNER:
@@ -363,10 +289,6 @@ public final class PetOwnerServiceGrpc {
         case METHODID_FIND_PET_OWNER:
           serviceImpl.findPetOwner((SearchField) request,
               (io.grpc.stub.StreamObserver<PetOwner>) responseObserver);
-          break;
-        case METHODID_UPDATE_PET_OWNER_INFORMATION:
-          serviceImpl.updatePetOwnerInformation((PetOwnerInfo) request,
-              (io.grpc.stub.StreamObserver<Void>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -404,7 +326,6 @@ public final class PetOwnerServiceGrpc {
               .addMethod(METHOD_CREATE_PET_OWNER)
               .addMethod(METHOD_LOGIN_PET_OWNER)
               .addMethod(METHOD_FIND_PET_OWNER)
-              .addMethod(METHOD_UPDATE_PET_OWNER_INFORMATION)
               .build();
         }
       }

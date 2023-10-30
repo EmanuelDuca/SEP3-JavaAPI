@@ -2,24 +2,24 @@ package origin.shared;
 
 
 public class AnnouncementEntity {
-    private final String petOwnerUsername ;
+    private final String petOwnerEmail ;
     private String description;
     private TimeIntervalEntity timeIntervalEntity;
     private PetEntity petEntity;
-    private AddressEntity addressEntity;
+    private String postalCode;
     private final String dateOfCreation;
 
-    public AnnouncementEntity(String petOwnerUsername, String description, TimeIntervalEntity timeIntervalEntity, PetEntity petEntity, AddressEntity addressEntity) {
-        this.petOwnerUsername = petOwnerUsername;
+    public AnnouncementEntity(String petOwnerEmail, String description, TimeIntervalEntity timeIntervalEntity, PetEntity petEntity, String postalCode) {
+        this.petOwnerEmail = petOwnerEmail;
         this.description = description;
         this.timeIntervalEntity = timeIntervalEntity;
         this.petEntity = petEntity;
-        this.addressEntity = addressEntity;
+        this.postalCode = postalCode;
         this.dateOfCreation= String.valueOf(System.currentTimeMillis());
     }
 
-    public String getPetOwnerUsername() {
-        return petOwnerUsername;
+    public String getPetOwnerEmail() {
+        return petOwnerEmail;
     }
 
     public String getDescription() {
@@ -46,12 +46,12 @@ public class AnnouncementEntity {
         this.petEntity = petEntity;
     }
 
-    public AddressEntity getAddress() {
-        return addressEntity;
+    public String getAddress() {
+        return postalCode;
     }
 
-    public void setAddress(AddressEntity addressEntity) {
-        this.addressEntity = addressEntity;
+    public void setAddress(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public String getDateOfCreation() {

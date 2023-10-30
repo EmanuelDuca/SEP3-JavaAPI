@@ -8,14 +8,14 @@ public interface AnnouncementOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string petOwnerUsername = 1;</code>
+   * <code>string petOwnerEmail = 1;</code>
    */
-  String getPetOwnerUsername();
+  String getPetOwnerEmail();
   /**
-   * <code>string petOwnerUsername = 1;</code>
+   * <code>string petOwnerEmail = 1;</code>
    */
   com.google.protobuf.ByteString
-      getPetOwnerUsernameBytes();
+      getPetOwnerEmailBytes();
 
   /**
    * <code>string description = 2;</code>
@@ -54,17 +54,22 @@ public interface AnnouncementOrBuilder extends
   PetOrBuilder getPetOrBuilder();
 
   /**
-   * <code>.Address address = 5;</code>
+   * <pre>
+   * address-&gt;string postal code
+   * </pre>
+   *
+   * <code>string postalCode = 5;</code>
    */
-  boolean hasAddress();
+  String getPostalCode();
   /**
-   * <code>.Address address = 5;</code>
+   * <pre>
+   * address-&gt;string postal code
+   * </pre>
+   *
+   * <code>string postalCode = 5;</code>
    */
-  Address getAddress();
-  /**
-   * <code>.Address address = 5;</code>
-   */
-  AddressOrBuilder getAddressOrBuilder();
+  com.google.protobuf.ByteString
+      getPostalCodeBytes();
 
   /**
    * <code>string dateOfCreation = 6;</code>

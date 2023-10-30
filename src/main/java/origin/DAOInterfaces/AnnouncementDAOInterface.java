@@ -9,7 +9,7 @@ public interface AnnouncementDAOInterface {
 
     void updateAnnouncement(AnnouncementEntity announcementEntity);
 
-    AnnouncementEntity getAnnouncement(String petOwnerUsername, String dateOfCreation);
+    AnnouncementEntity getAnnouncement(String petOwnerEmail);
 
     Collection<AnnouncementEntity> getAllAnnouncements();
 
