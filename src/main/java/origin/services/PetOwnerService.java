@@ -1,6 +1,7 @@
 package origin.services;
 
 import io.grpc.stub.StreamObserver;
+import origin.DAO.PetOwnerDAO;
 import origin.DAOInterfaces.PetOwnerDAOInterface;
 import origin.mappers.PetOwnerMapper;
 import origin.protobufClasses.LoginUser;
@@ -13,8 +14,11 @@ import origin.shared.PetOwnerEntity;
 
 public class PetOwnerService extends PetOwnerServiceGrpc.PetOwnerServiceImplBase {
 
-    private PetOwnerDAOInterface petOwnerDAO;// maybe dao impl
-    public PetOwnerService()     {    }
+    private final PetOwnerDAOInterface petOwnerDAO;
+    public PetOwnerService()
+    {
+        petOwnerDAO = new PetOwnerDAO();
+    }
 
     @Override
     public void loginPetOwner(LoginUser request, StreamObserver<PetOwner> responseObserver)
