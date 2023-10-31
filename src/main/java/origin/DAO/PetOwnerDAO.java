@@ -1,17 +1,22 @@
 package origin.DAO;
 
 import origin.DAOInterfaces.PetOwnerDAOInterface;
+import origin.File.FileServer;
 import origin.shared.PetOwnerEntity;
 
+import java.io.File;
 import java.util.Collection;
 
 public class PetOwnerDAO implements PetOwnerDAOInterface {
+    private FileServer database;
     public PetOwnerDAO() {
+        database = FileServer.getInstance();
     }
 
     @Override
     public PetOwnerEntity registerUser(PetOwnerEntity petOwnerEntity)
     {
+        database.AppendToFile(petOwnerEntity);
         return petOwnerEntity;
     }
 

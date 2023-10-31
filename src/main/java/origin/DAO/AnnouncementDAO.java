@@ -1,17 +1,21 @@
 package origin.DAO;
 
 import origin.DAOInterfaces.AnnouncementDAOInterface;
+import origin.File.FileServer;
 import origin.shared.AnnouncementEntity;
 
 import java.util.Collection;
 
 public class AnnouncementDAO implements AnnouncementDAOInterface {
+    private FileServer database;
     public AnnouncementDAO() {
+        database = FileServer.getInstance();
     }
 
     @Override
     public AnnouncementEntity createAnnouncement(AnnouncementEntity announcementEntity)
     {
+        database.AppendToFile(announcementEntity);
         return announcementEntity;
     }
 
