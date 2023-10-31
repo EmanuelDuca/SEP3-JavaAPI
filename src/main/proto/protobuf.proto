@@ -38,6 +38,7 @@ message Announcement{
   Pet pet = 4;
   string postalCode = 5; // address->string postal code
   string dateOfCreation = 6;
+  int32 Id = 7;
 }
 
 message Announcements{

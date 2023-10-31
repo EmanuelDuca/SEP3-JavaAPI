@@ -1,6 +1,9 @@
 package origin.shared;
 
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class AnnouncementEntity {
     private final String petOwnerEmail ;
     private String description;
@@ -15,7 +18,7 @@ public class AnnouncementEntity {
         this.timeIntervalEntity = timeIntervalEntity;
         this.petEntity = petEntity;
         this.postalCode = postalCode;
-        this.dateOfCreation= String.valueOf(System.currentTimeMillis());
+        this.dateOfCreation = LocalDateTime.now().toString();
     }
 
     public String getPetOwnerEmail() {

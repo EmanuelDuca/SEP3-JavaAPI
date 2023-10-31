@@ -38,6 +38,7 @@ public class AnnouncementService extends AnnouncementServiceGrpc.AnnouncementSer
         responseObserver.onNext(AnnouncementMapper.mapToProto(announcementRespond));
         responseObserver.onCompleted();
 
+        System.out.println("An Announcement was created by: "+request.getPetOwnerEmail() +" at time: "+request.getDateOfCreation());
     }
 
     @Override
