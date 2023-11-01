@@ -1,2 +1,2 @@
-{"username":"ionV","password":"1111","age":0,"phone":"","email":"ionv@gmail.com"}
-{"petOwnerEmail":"ionv@gmail.com","description":"string","dateOfCreation":"2023-10-31T20:30:52.420962400","address":"8700","timeInterval":{"startDate":"31/10/2023","endDate":"31/10/2023"},"pet":{"petName":"Max","petType":"string","weight":0,"dietDescription":"string","vaccinated":true}}
+
+{"petOwnerEmail":"someemail@gmail.com","description":"some desc","dateOfCreation":"2023-11-01T08:26:14.611847","address":"8700","pet":{"petName":"Pollo","petType":"Dog","weight":3,"dietDescription":"Who did this field required?!?!","vaccinated":false},"timeInterval":{"startDate":"01/11/2023","endDate":"04/11/2023"}}

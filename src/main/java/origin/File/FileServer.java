@@ -12,12 +12,17 @@ import java.util.ArrayList;
 
 public class FileServer {
     private ObjectMapper json;
-    private final String filepath = "DatabaseList.txt";
+    private final String filepath = "DatabaseList.bin";
 
     private static FileServer obj;
+    private ArrayList<PetOwnerEntity> petOwnersList;
+    private ArrayList<AnnouncementEntity> announcementsList;
+
 
     private FileServer() {
         json = new ObjectMapper();
+        petOwnersList = new ArrayList<>();
+        announcementsList = new ArrayList<>();
     }
 
     public static FileServer getInstance() {
@@ -28,25 +33,26 @@ public class FileServer {
     }
 
     public void AppendToFile(PetOwnerEntity petOwner) {
-
-        try {
-            MyFileHandler.appendToTextFile(filepath, convertToString(petOwner));
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            System.out.println("IO Error writing to file");
-        }
+        petOwnersList.add(petOwner);
+        writeDatabaseToFile();
     }
 
     public void AppendToFile(AnnouncementEntity announcement) {
-        try {
-            MyFileHandler.appendToTextFile(filepath, convertToString(announcement));
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            System.out.println("IO Error writing to file");
-        }
+        announcementsList.add(announcement);
+        writeDatabaseToFile();
     }
+
+    public ArrayList<AnnouncementEntity> getAnnouncement(){
+        readFromDatabase();
+        return announcementsList;
+    }
+
+    public ArrayList<PetOwnerEntity> getPetOwners(){
+        readFromDatabase();
+        return petOwnersList;
+    }
+
+
 
     private String convertToString(Object obj){
         try{
@@ -55,6 +61,45 @@ public class FileServer {
             System.err.println(e.getMessage());
         }
         return null;
+    }
+
+    private ArrayList<AnnouncementEntity> fetchAnnouncementList(){
+        return announcementsList;
+    }
+
+    private ArrayList<PetOwnerEntity> fetchPetOwnerList(){
+        return petOwnersList;
+    }
+
+    private void  writeDatabaseToFile(){
+        try {
+            MyFileHandler.writeToBinaryFile(filepath, this);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("IO Error writing to file");
+        }
+    }
+
+    private void readFromDatabase(){
+        FileServer fileServer ;
+        try{
+            fileServer = (FileServer) MyFileHandler.readFromBinaryFile(filepath);
+            announcementsList = fileServer.fetchAnnouncementList();
+            petOwnersList = fileServer.fetchPetOwnerList();
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("File not found");
+        }
+        catch (IOException e)
+        {
+            System.out.println("IO Error reading file");
+        }
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Class Not Found");
+        }
     }
 
 
